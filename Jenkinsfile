@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Hello from TEST stage"'
-                
+                sh 'does the trigger work?'
             }
         }
     }
