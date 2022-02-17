@@ -9,7 +9,7 @@ pipeline {
                     ls -lah
                 '''
             }
-        },
+        }
         stage('Test') {
             steps {
                 sh 'echo "Hello from TEST stage"'
