@@ -4,7 +4,10 @@ pipeline {
         stage ('Build') {
            steps {
                script{
-                   sh '"ansible-playbook ./playbooks/create-vm.yml "'
+                   sh 'ls -lah'
+               }
+               script{
+                   sh '"ansible-playbook ./playbooks/create-vm.yml"'
                }
            }
        }
