@@ -5,7 +5,8 @@ pipeline {
             steps {
                 script {
                     sh 'ls -lahR'
-                    sh '"ansible-playbook ./playbooks/create-vm.yml"'
+                    /* groovylint-disable-next-line GStringExpressionWithinString, LineLength */
+                    sh 'ansible-playbook ./playbooks/create-vm.yml --extra-vars "vcenter_hostname=${vcenter_hostname} vcenter_username=${vcenter_username} vcenter_password=${vcenter_password} vm_uuid=${vm_uuid}"'
                 }
             }
         }
