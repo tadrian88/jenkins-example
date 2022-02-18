@@ -1,11 +1,12 @@
----
-- name: Create new container with minimal options
-  community.general.proxmox:
-    vmid: 100
-    node: uk-mc02
-    api_user: root@pam
-    api_password: 1q2w3e
-    api_host: node1
-    password: 123456
-    hostname: example.org
-    ostemplate: 'local-storage001:vztmpl/debian-10-turnkey-jenkins_16.1-1_amd64.tar.gz'
+- name: create vm
+  hosts: localhost
+  become: True
+
+  tasks:
+    - name: Create new container with minimal options
+      community.general.proxmox:
+        node: node01
+        api_user: adi@pve
+        api_password: KubeARK!
+        api_host: node01
+        ostemplate: "local-storage001:vztmpl/debian-10-turnkey-jenkins_16.1-1_amd64.tar.gz"
