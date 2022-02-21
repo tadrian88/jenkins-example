@@ -5,8 +5,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([file(credentialsId: 'vmware_secrets', variable: 'vmwaresecrets')]) {
-                        sh 'cat $vmwaresecrets'
-                        sh 'ansible-playbook ./playbooks/create-vm.yml --extra-vars $vmwaresecrets -e "ansible_python_interpreter=/usr/bin/python3"'
+                        sh 'ansible-playbook ./playbooks/create-vm.yml --extra-vars "$vmwaresecrets" -e "ansible_python_interpreter=/usr/bin/python3"'
                     }
                 }
             }
