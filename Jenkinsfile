@@ -7,8 +7,8 @@ pipeline {
             }
             steps {
                 script {
-                    echo "####DISPLAYING SECRET_FILE_ID####"
-	                echo "Global property file: ${SECRET_FILE_ID}"
+                    sh("echo ####DISPLAYING SECRET_FILE_ID####")
+                    sh("echo Global property file: ${SECRET_FILE_ID}")
                     // sh 'ls -lahR'
                     // sh 'echo "vcenter_hostname is $vcenter_hostname"'
                     // sh 'echo "vcenter_hostname is ${str3}"'
