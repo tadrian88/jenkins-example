@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage ('Build') {
             environment {
-                SECRET_FILE_ID = credentials('vmwareSecrets')
+                vcenter_hostname = credentials('vcenter_hostname')
             }
             steps {
                 script {
-                    sh("echo ####DISPLAYING SECRET_FILE_ID####")
-                    sh("echo Global property file: ${SECRET_FILE_ID}")
+                    sh("echo ####vcenter_hostname####")
+                    sh("echo vcenter_hostname is : ${vcenter_hostname}")
                     // sh 'ls -lahR'
                     // sh 'echo "vcenter_hostname is $vcenter_hostname"'
                     // sh 'echo "vcenter_hostname is ${str3}"'
