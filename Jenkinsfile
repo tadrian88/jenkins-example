@@ -2,9 +2,11 @@ pipeline {
     agent any
     stages {
         stage ('Build') {
-            script {
-                withCredentials([file(credentialsId: 'vmware_secrets', variable: 'vmwaresecrets')]) {
-                    sh 'ansible-playbook ./playbooks/create-vm.yml --extra-vars $vmwaresecrets -e "ansible_python_interpreter=/usr/bin/python3"'
+            steps {
+                script {
+                    withCredentials([file(credentialsId: 'vmware_secrets', variable: 'vmwaresecrets')]) {
+                        sh 'ansible-playbook ./playbooks/create-vm.yml --extra-vars $vmwaresecrets -e "ansible_python_interpreter=/usr/bin/python3"'
+                    }
                 }
             }
             stage('Test') {
