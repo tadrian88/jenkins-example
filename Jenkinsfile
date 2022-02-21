@@ -9,11 +9,11 @@ pipeline {
                     }
                 }
             }
-            stage('Test') {
-                steps {
-                    sh 'echo "Hello from TEST stage"'
-                    sh 'echo "trigger should work"'
-                }
+        }
+        stage('Test') {
+            steps {
+                sh 'echo "Hello from TEST stage"'
+                sh 'echo "trigger should work"'
             }
         }
     }
