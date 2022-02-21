@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Build') {
             environment {
-                vcenter = credentials('vcenter_hostname')
+                vcenter = credentials('VCENTER_HOSTNAME')
             }
             steps {
                 script {
