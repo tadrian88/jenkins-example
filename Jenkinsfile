@@ -2,10 +2,10 @@ pipeline {
     agent any
     stages {
         stage ('Build') {
-            environment {
-                vcenter_hostname = credentials('vcenter_hostname')
-            }
             steps {
+                withCredentials([string(credentialsIs: 'vmwareSecrets', variable: 'vcenter_hostname')]) {
+                    echo "${vcenter_hostname}"
+                }
                 script {
                     sh("echo ####vcenter_hostname####")
                     sh("echo vcenter_hostname is : ${vcenter_hostname}")
