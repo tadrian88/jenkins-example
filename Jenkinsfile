@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                withCredentials([string(credentialsIs: 'vmwareSecrets', variable: 'vcenter_hostname')]) {
+                withCredentials([string(credentialsId: 'vmwareSecrets', variable: 'vcenter_hostname')]) {
                     echo "${vcenter_hostname}"
                 }
                 script {
