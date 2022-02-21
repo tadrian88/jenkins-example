@@ -5,7 +5,6 @@ pipeline {
             withCredentials([file(credentialsId: 'vmware_secrets', variable: 'VCENTER_HOSTNAME')]) {
                 sh 'echo $VCENTER_HOSTNAME | base64'
             }
-        }
             steps {
                 script {
                     sh("echo ####vcenter_hostname####")
